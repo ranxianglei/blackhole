@@ -12,12 +12,35 @@ horizon, photon ring, lensed disk and starfield are all *computed*.
 
 ---
 
+## Session statistics
+
+This entire project was generated in a **single pi agent session** with no
+human code edits.
+
+| Metric | Value |
+|---|---|
+| Model | `qwen3.8-27b` (vLLM, W8A16, 1B context) |
+| Session ID | `01a05ddd-fe41-7c95-ab00-afe68baf7272` |
+| Start (UTC) | 2026-09-01 16:47:04.769 |
+| End (UTC) | 2026-09-01 17:34:53.961 |
+| **Wall-clock duration** | **47 min 49 s** |
+| Session records | 189 (92 assistant messages with usage) |
+| Input tokens | 110,810 |
+| Output tokens | 157,610 |
+| Cache-read tokens | 6,484,736 |
+| **Total tokens** | **≈ 6.75 M** |
+| Context compressions | 1 (range m00002–m00041, at 17:08:39 UTC) |
+| Tool calls | bash ×46, read ×18, write ×15, edit ×13, compress ×1 |
+| Project size | ≈ 12 MB (incl. `vendor/three` 2.2 MB, `audio` 2.1 MB, `tmp` 6.8 MB) |
+
+---
+
 ## Quick start
 
 Any static file server works (ES Modules require `http://`, not `file://`):
 
 ```bash
-cd ~/projects/blackhole
+cd qwen3.8-27b-w8a16-billion-context-pi
 python3 -m http.server 8123
 # → open http://localhost:8123
 ```
