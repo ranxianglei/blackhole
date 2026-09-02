@@ -33,6 +33,13 @@ human code edits.
 | Tool calls | bash ×46, read ×18, write ×15, edit ×13, compress ×1 |
 | Project size | ≈ 12 MB (incl. `vendor/three` 2.2 MB, `audio` 2.1 MB, `tmp` 6.8 MB) |
 
+### Raw session data
+
+The complete original session is preserved in [`session/`](session/):
+
+- `2026-09-01T16-47-04-769Z_01a05ddd-fe41-7c95-ab00-afe68baf7272.jsonl` (20.9 MB) — full pi session transcript (all 189 records: user/assistant messages, tool calls, tool results, usage)
+- `2026-09-01T16-47-04-769Z_01a05ddd-fe41-7c95-ab00-afe68baf7272.jsonl.acp.json` (19 KB) — ACP context-manager state (compression blocks, summaries, accounting)
+
 ### Final ACP context status (session end)
 
 ```
