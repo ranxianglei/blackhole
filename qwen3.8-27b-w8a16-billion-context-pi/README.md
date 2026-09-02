@@ -33,6 +33,45 @@ human code edits.
 | Tool calls | bash ×46, read ×18, write ×15, edit ×13, compress ×1 |
 | Project size | ≈ 12 MB (incl. `vendor/three` 2.2 MB, `audio` 2.1 MB, `tmp` 6.8 MB) |
 
+### Final ACP context status (session end)
+
+```
+╭─────────────────────────────────────────────╮
+│           ACP Context Analysis              │
+╰─────────────────────────────────────────────╯
+billion-context-pi@0.1.55
+
+Context (session accounting, host footer scale): 42% (111k / 262k) — never shrinks; includes compressed originals
+Growth: +1.1k since last nudge
+
+Sent to LLM (after compression, est.): 42k (16% of limit)
+Session-only (compressed originals, est.): 25k — pruned from every request; the footer/nudge still count them
+
+Token Breakdown (sent view):
+  Tool       █████████████████░░░  84%  35k
+  SysPrompt  ██░░░░░░░░░░░░░░░░░░   8%  3.5k
+  Text       ░░░░░░░░░░░░░░░░░░░░   1%  343
+  Code       ░░░░░░░░░░░░░░░░░░░░   2%  804
+  Summaries  █░░░░░░░░░░░░░░░░░░░   4%  1.8k
+
+Prompt cache (provider-reported): 99.9% last · 98.3% session avg — 6.5M of 6.6M billed prompt tokens served from cache (92 req)
+
+Nudge: idle — max compressible 28661 < threshold 50000; growth 1147 < floor 22500
+
+Compressible ranges (3, oldest first):
+  m00042–m00151  110 msgs  28.9K [27.0K compressible | 1.9K protected: compress]
+  m00154–m00181  18 msgs  1.6K [tool 100% | text 0%]
+  m00184–m00187  4 msgs  445 [tool 100% | text 0%]
+
+Blocks: 1 active / 1 total (9.7k tokens compressed)
+  [b1] T1 9.7k→1.8k: ## Task (user m00001, verbatim…
+
+Tag visibility: tags injected to LLM only (deep copy), not persisted in session, not shown in terminal.
+
+~/projects/blackhole (master)
+↑111k ↓158k R6.5M CH99.9% 42.6%/262k (auto)
+```
+
 ---
 
 ## Quick start
